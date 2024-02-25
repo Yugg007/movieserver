@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movieserver-deployment
+spec:
+  replicas: 2
+  selector:
+      matchLabels:
+        app: movieserver
+  template:
+    metadata:
+      labels:
+        app: movieserver
+    spec:
+      containers:
+      - name: movieserver
+        image: iamdevil007/movieserver
+        ports:
+        - containerPort: 8080
